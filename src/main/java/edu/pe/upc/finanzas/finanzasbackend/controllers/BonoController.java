@@ -41,4 +41,10 @@ public class BonoController {
     public ResponseEntity<List<Bono>> listarBonosPorUsuario(@PathVariable Long usuarioId) {
         return ResponseEntity.ok(bonoService.findAllByUsuarioId(usuarioId));
     }
+
+    @PostMapping
+    public ResponseEntity<Bono> crearBono(@RequestBody BonoDTO bonoDTO) {
+        Bono bonoCreado = bonoService.create(bonoDTO);
+        return ResponseEntity.ok(bonoCreado);
+    }
 }

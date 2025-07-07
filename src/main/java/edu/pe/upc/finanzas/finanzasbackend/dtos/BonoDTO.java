@@ -20,27 +20,6 @@ public class BonoDTO {
     private BigDecimal porcCavali;
     private BigDecimal inflacionAnual;
 
-    /* Datos que el sistema deberia calcular
-    private Double precioActual;
-    private Double utilidadPerdida;
-    private Double duracion;
-    private Double convexidad;
-    private Double total;
-    private Double duracionModificada;
-    private BigDecimal tceaEmisor;
-    private BigDecimal tceaEmisorEscudo;
-    private BigDecimal treaBonista;
-    */
-    //Ids de las entidades relacionadas
-    private Long usuarioId;
-    private Long monedaId;
-    private Long diasAnioId;
-    private Long tipoCapitalizacionId;
-    private Long aplicanteId;
-    private Long frecuenciaCuponId;
-    private Long tasaInteresId;
-    private Long tipoPeriodoGraciaId;
-
     public Long getBonoId() {
         return bonoId;
     }
@@ -143,69 +122,5 @@ public class BonoDTO {
 
     public void setInflacionAnual(BigDecimal inflacionAnual) {
         this.inflacionAnual = inflacionAnual;
-    }
-
-    public Long getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(Long usuarioId) {
-        this.usuarioId = usuarioId;
-    }
-
-    public Long getMonedaId() {
-        return monedaId;
-    }
-
-    public void setMonedaId(Long monedaId) {
-        this.monedaId = monedaId;
-    }
-
-    public Long getDiasAnioId() {
-        return diasAnioId;
-    }
-
-    public void setDiasAnioId(Long diasAnioId) {
-        this.diasAnioId = diasAnioId;
-    }
-
-    public Long getTipoCapitalizacionId() {
-        return tipoCapitalizacionId;
-    }
-
-    public void setTipoCapitalizacionId(Long tipoCapitalizacionId) {
-        this.tipoCapitalizacionId = tipoCapitalizacionId;
-    }
-
-    public Long getAplicanteId() {
-        return aplicanteId;
-    }
-
-    public void setAplicanteId(Long aplicanteId) {
-        this.aplicanteId = aplicanteId;
-    }
-
-    public Long getFrecuenciaCuponId() {
-        return frecuenciaCuponId;
-    }
-
-    public void setFrecuenciaCuponId(Long frecuenciaCuponId) {
-        this.frecuenciaCuponId = frecuenciaCuponId;
-    }
-
-    public Long getTasaInteresId() {
-        return tasaInteresId;
-    }
-
-    public void setTasaInteresId(Long tasaInteresId) {
-        this.tasaInteresId = tasaInteresId;
-    }
-
-    public Long getTipoPeriodoGraciaId() {
-        return tipoPeriodoGraciaId;
-    }
-
-    public void setTipoPeriodoGraciaId(Long tipoPeriodoGraciaId) {
-        this.tipoPeriodoGraciaId = tipoPeriodoGraciaId;
     }
 }
