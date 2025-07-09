@@ -20,5 +20,13 @@ public class BonoDTO {
     private BigDecimal porcFlotacion;
     private BigDecimal porcCavali;
     private BigDecimal inflacionAnual;
+    private Long usuarioId;
+    private Long monedaId;
+    private Long diasAnioId;
+    private Long tipoCapitalizacionId;
+    private Long aplicanteId;
+    private Long frecuenciaCuponId;
+    private Long tasaInteresId;
+    private Long tipoPeriodoGraciaId;
 
 }
