@@ -31,6 +31,8 @@ public class Bono implements Serializable {
     private Long impRenta;
     @Column(name = "fecha_emision")
     private LocalDate fechaEmision;
+    @Column(name = "porc_prima", precision = 5, scale = 3)
+    private BigDecimal porcPrima;
     @Column(name = "porc_estructuracion", precision = 5, scale = 3)
     private BigDecimal porcEstructuracion;
     @Column(name = "porc_colocacion", precision = 5, scale = 3)

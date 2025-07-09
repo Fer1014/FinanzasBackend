@@ -57,6 +57,7 @@ public class BonoServiceImpl implements IBonoService {
         bono.setTasaAnualDesc(bonoDTO.getTasaAnualDesc());
         bono.setImpRenta(bonoDTO.getImpRenta());
         bono.setFechaEmision(bonoDTO.getFechaEmision());
+        bono.setPorcPrima(bonoDTO.getPorcPrima());
         bono.setPorcEstructuracion(bonoDTO.getPorcEstructuracion());
         bono.setPorcColocacion(bonoDTO.getPorcColocacion());
         bono.setPorcFlotacion(bonoDTO.getPorcFlotacion());

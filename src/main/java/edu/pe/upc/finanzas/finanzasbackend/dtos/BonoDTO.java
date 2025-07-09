@@ -15,6 +15,7 @@ public class BonoDTO {
     private BigDecimal tasaAnualDesc;
     private Long impRenta;
     private LocalDate fechaEmision;
+    private BigDecimal porcPrima;
     private BigDecimal porcEstructuracion;
     private BigDecimal porcColocacion;
     private BigDecimal porcFlotacion;
