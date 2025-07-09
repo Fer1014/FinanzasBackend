@@ -1,11 +1,10 @@
 package edu.pe.upc.finanzas.finanzasbackend.controllers;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.AplicanteDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.Aplicante;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.IAplicanteService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +20,13 @@ public class AplicanteController {
     }
 
     @GetMapping
-    public List<Aplicante> listarAplicantes() {
-        return aplicanteService.list();
+    public ResponseEntity<List<Aplicante>> listarAplicantes() {
+        return ResponseEntity.ok(aplicanteService.list());
+    }
+
+    @PostMapping
+    public ResponseEntity<Aplicante> crearAplicante(@RequestBody AplicanteDTO aplicanteDTO) {
+        Aplicante aplicante = aplicanteService.create(aplicanteDTO);
+        return ResponseEntity.ok(aplicante);
     }
 }
