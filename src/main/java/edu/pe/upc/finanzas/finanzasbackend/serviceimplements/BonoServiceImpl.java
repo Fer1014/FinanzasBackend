@@ -21,7 +21,6 @@ public class BonoServiceImpl implements IBonoService {
     @Override
     public Bono create(BonoDTO bonoDTO) {
         Bono bono = new Bono();
-        bono.setBonoId(bonoDTO.getBonoId());
         bono.setValorNominal(bonoDTO.getValorNominal());
         bono.setValorComercial(bonoDTO.getValorComercial());
         bono.setNumAnios(bonoDTO.getNumAnios());
