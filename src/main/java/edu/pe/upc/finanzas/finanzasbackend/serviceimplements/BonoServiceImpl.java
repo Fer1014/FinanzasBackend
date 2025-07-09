@@ -21,6 +21,10 @@ public class BonoServiceImpl implements IBonoService {
     @Override
     public Bono create(BonoDTO bonoDTO) {
         Bono bono = new Bono();
+        return getBono(bonoDTO, bono);
+    }
+
+    private Bono getBono(BonoDTO bonoDTO, Bono bono) {
         bono.setValorNominal(bonoDTO.getValorNominal());
         bono.setValorComercial(bonoDTO.getValorComercial());
         bono.setNumAnios(bonoDTO.getNumAnios());
@@ -41,19 +45,7 @@ public class BonoServiceImpl implements IBonoService {
         Optional<Bono> optionalBono = bonoRepository.findById(bonoId);
         if (optionalBono.isPresent()) {
             Bono bono = optionalBono.get();
-            bono.setValorNominal(bonoDTO.getValorNominal());
-            bono.setValorComercial(bonoDTO.getValorComercial());
-            bono.setNumAnios(bonoDTO.getNumAnios());
-            bono.setTasaInteresPorc(bonoDTO.getTasaInteresPorc());
-            bono.setTasaAnualDesc(bonoDTO.getTasaAnualDesc());
-            bono.setImpRenta(bonoDTO.getImpRenta());
-            bono.setFechaEmision(bonoDTO.getFechaEmision());
-            bono.setPorcEstructuracion(bonoDTO.getPorcEstructuracion());
-            bono.setPorcColocacion(bonoDTO.getPorcColocacion());
-            bono.setPorcFlotacion(bonoDTO.getPorcFlotacion());
-            bono.setPorcCavali(bonoDTO.getPorcCavali());
-            bono.setInflacionAnual(bonoDTO.getInflacionAnual());
-            return bonoRepository.save(bono);
+            return getBono(bonoDTO, bono);
         }
         return null;
     }
