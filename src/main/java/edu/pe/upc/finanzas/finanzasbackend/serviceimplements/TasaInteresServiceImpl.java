@@ -1,5 +1,6 @@
 package edu.pe.upc.finanzas.finanzasbackend.serviceimplements;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.TasaInteresDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.TasaInteres;
 import edu.pe.upc.finanzas.finanzasbackend.repositories.TasaInteresRepository;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.ITasaInteresService;
@@ -19,5 +20,12 @@ public class TasaInteresServiceImpl implements ITasaInteresService {
     @Override
     public List<TasaInteres> list() {
         return tasaInteresRepository.findAll();
+    }
+
+    @Override
+    public TasaInteres create(TasaInteresDTO tasaInteresDTO) {
+        TasaInteres tasaInteres = new TasaInteres();
+        tasaInteres.setDescripcion(tasaInteresDTO.getDescripcion());
+        return tasaInteresRepository.save(tasaInteres);
     }
 }
