@@ -2,11 +2,13 @@ package edu.pe.upc.finanzas.finanzasbackend.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Data
 @Entity
 @Table(name = "DetalleBono")
 public class DetalleBono implements Serializable {
@@ -70,142 +72,6 @@ public class DetalleBono implements Serializable {
         this.flujoActual = flujoActual;
         this.flujoActPlazo = flujoActPlazo;
         this.factorConvexidad = factorConvexidad;
-        this.bono = bono;
-    }
-
-    public Long getDetalleBonoId() {
-        return detalleBonoId;
-    }
-
-    public void setDetalleBonoId(Long detalleBonoId) {
-        this.detalleBonoId = detalleBonoId;
-    }
-
-    public LocalDate getFechaProgramada() {
-        return fechaProgramada;
-    }
-
-    public void setFechaProgramada(LocalDate fechaProgramada) {
-        this.fechaProgramada = fechaProgramada;
-    }
-
-    public BigDecimal getInflacionTipo() {
-        return inflacionTipo;
-    }
-
-    public void setInflacionTipo(BigDecimal inflacionTipo) {
-        this.inflacionTipo = inflacionTipo;
-    }
-
-    public Double getBonoValor() {
-        return bonoValor;
-    }
-
-    public void setBonoValor(Double bonoValor) {
-        this.bonoValor = bonoValor;
-    }
-
-    public Double getBonoIndexado() {
-        return bonoIndexado;
-    }
-
-    public void setBonoIndexado(Double bonoIndexado) {
-        this.bonoIndexado = bonoIndexado;
-    }
-
-    public Double getCuponInteres() {
-        return cuponInteres;
-    }
-
-    public void setCuponInteres(Double cuponInteres) {
-        this.cuponInteres = cuponInteres;
-    }
-
-    public Double getCuota() {
-        return cuota;
-    }
-
-    public void setCuota(Double cuota) {
-        this.cuota = cuota;
-    }
-
-    public Double getAmortizacion() {
-        return amortizacion;
-    }
-
-    public void setAmortizacion(Double amortizacion) {
-        this.amortizacion = amortizacion;
-    }
-
-    public Double getPrima() {
-        return prima;
-    }
-
-    public void setPrima(Double prima) {
-        this.prima = prima;
-    }
-
-    public Double getEscudo() {
-        return escudo;
-    }
-
-    public void setEscudo(Double escudo) {
-        this.escudo = escudo;
-    }
-
-    public Double getFlujoEmisor() {
-        return flujoEmisor;
-    }
-
-    public void setFlujoEmisor(Double flujoEmisor) {
-        this.flujoEmisor = flujoEmisor;
-    }
-
-    public Double getFlujoEmisorEscudo() {
-        return flujoEmisorEscudo;
-    }
-
-    public void setFlujoEmisorEscudo(Double flujoEmisorEscudo) {
-        this.flujoEmisorEscudo = flujoEmisorEscudo;
-    }
-
-    public Double getFlujoBonista() {
-        return flujoBonista;
-    }
-
-    public void setFlujoBonista(Double flujoBonista) {
-        this.flujoBonista = flujoBonista;
-    }
-
-    public Double getFlujoActual() {
-        return flujoActual;
-    }
-
-    public void setFlujoActual(Double flujoActual) {
-        this.flujoActual = flujoActual;
-    }
-
-    public Double getFlujoActPlazo() {
-        return flujoActPlazo;
-    }
-
-    public void setFlujoActPlazo(Double flujoActPlazo) {
-        this.flujoActPlazo = flujoActPlazo;
-    }
-
-    public Double getFactorConvexidad() {
-        return factorConvexidad;
-    }
-
-    public void setFactorConvexidad(Double factorConvexidad) {
-        this.factorConvexidad = factorConvexidad;
-    }
-
-    public Bono getBono() {
-        return bono;
-    }
-
-    public void setBono(Bono bono) {
         this.bono = bono;
     }
 }
