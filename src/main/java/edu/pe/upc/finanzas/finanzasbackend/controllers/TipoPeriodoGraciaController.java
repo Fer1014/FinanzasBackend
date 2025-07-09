@@ -1,11 +1,10 @@
 package edu.pe.upc.finanzas.finanzasbackend.controllers;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.TipoPeriodoGraciaDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.TipoPeriodoGracia;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.ITipoPeriodoGraciaService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +20,13 @@ public class TipoPeriodoGraciaController {
     }
 
     @GetMapping
-    public List<TipoPeriodoGracia> listarTipos() {
-        return tipoPeriodoGraciaService.list();
+    public ResponseEntity<List<TipoPeriodoGracia>> listarTipos() {
+        return ResponseEntity.ok(tipoPeriodoGraciaService.list());
+    }
+
+    @PostMapping
+    public ResponseEntity<TipoPeriodoGracia> crearTipo(@RequestBody TipoPeriodoGraciaDTO dto) {
+        TipoPeriodoGracia tipo = tipoPeriodoGraciaService.create(dto);
+        return ResponseEntity.ok(tipo);
     }
 }

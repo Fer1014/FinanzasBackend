@@ -1,5 +1,6 @@
 package edu.pe.upc.finanzas.finanzasbackend.serviceimplements;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.TipoCapitalizacionDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.TipoCapitalizacion;
 import edu.pe.upc.finanzas.finanzasbackend.repositories.TipoCapitalizacionRepository;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.ITipoCapitalizacionService;
@@ -15,6 +16,14 @@ public class TipoCapitalizacionServiceImpl implements ITipoCapitalizacionService
     public TipoCapitalizacionServiceImpl(TipoCapitalizacionRepository tipoCapitalizacionRepository) {
         this.tipoCapitalizacionRepository = tipoCapitalizacionRepository;
     }
+
+    @Override
+    public TipoCapitalizacion create(TipoCapitalizacionDTO dto) {
+        TipoCapitalizacion tipo = new TipoCapitalizacion();
+        tipo.setDescripcion(dto.getDescripcion());
+        return tipoCapitalizacionRepository.save(tipo);
+    }
+
 
     @Override
     public List<TipoCapitalizacion> list() {

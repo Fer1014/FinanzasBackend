@@ -1,11 +1,10 @@
 package edu.pe.upc.finanzas.finanzasbackend.controllers;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.TasaInteresDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.TasaInteres;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.ITasaInteresService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,8 +19,15 @@ public class TasaInteresController {
         this.tasaInteresService = tasaInteresService;
     }
 
+
     @GetMapping
-    public List<TasaInteres> listarTasas() {
-        return tasaInteresService.list();
+    public ResponseEntity<List<TasaInteres>> listarTasasInteres() {
+        return ResponseEntity.ok(tasaInteresService.list());
+    }
+
+    @PostMapping
+    public ResponseEntity<TasaInteres> crearTasaInteres(@RequestBody TasaInteresDTO tasaInteresDTO) {
+        TasaInteres tasaInteres = tasaInteresService.create(tasaInteresDTO);
+        return ResponseEntity.ok(tasaInteres);
     }
 }

@@ -1,5 +1,6 @@
 package edu.pe.upc.finanzas.finanzasbackend.serviceimplements;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.TipoPeriodoGraciaDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.TipoPeriodoGracia;
 import edu.pe.upc.finanzas.finanzasbackend.repositories.TipoPeriodoGraciaRepository;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.ITipoPeriodoGraciaService;
@@ -14,6 +15,14 @@ public class TipoPeriodoGraciaServiceImpl implements ITipoPeriodoGraciaService {
 
     public TipoPeriodoGraciaServiceImpl(TipoPeriodoGraciaRepository tipoPeriodoGraciaRepository) {
         this.tipoPeriodoGraciaRepository = tipoPeriodoGraciaRepository;
+    }
+
+    @Override
+    public TipoPeriodoGracia create(TipoPeriodoGraciaDTO dto) {
+        TipoPeriodoGracia tipoPeriodo = new TipoPeriodoGracia();
+        tipoPeriodo.setDescripcion(dto.getDescripcion());
+        // Mapear otros campos si hay
+        return tipoPeriodoGraciaRepository.save(tipoPeriodo);
     }
 
     @Override

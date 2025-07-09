@@ -1,11 +1,10 @@
 package edu.pe.upc.finanzas.finanzasbackend.controllers;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.FrecuenciaCuponDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.FrecuenciaCupon;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.IFrecuenciaCuponService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +20,14 @@ public class FrecuenciaCuponController {
     }
 
     @GetMapping
-    public List<FrecuenciaCupon> listarFrecuencias() {
-        return frecuenciaCuponService.list();
+    public ResponseEntity<List<FrecuenciaCupon>> listarFrecuenciasCupon() {
+        return ResponseEntity.ok(frecuenciaCuponService.list());
+    }
+
+
+    @PostMapping
+    public ResponseEntity<FrecuenciaCupon> crearFrecuenciaCupon(@RequestBody FrecuenciaCuponDTO frecuenciaCuponDTO) {
+        FrecuenciaCupon frecuenciaCupon = frecuenciaCuponService.create(frecuenciaCuponDTO);
+        return ResponseEntity.ok(frecuenciaCupon);
     }
 }

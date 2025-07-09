@@ -1,11 +1,10 @@
 package edu.pe.upc.finanzas.finanzasbackend.controllers;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.TipoCapitalizacionDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.TipoCapitalizacion;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.ITipoCapitalizacionService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +20,13 @@ public class TipoCapitalizacionController {
     }
 
     @GetMapping
-    public List<TipoCapitalizacion> listarTipos() {
-        return tipoCapitalizacionService.list();
+    public ResponseEntity<List<TipoCapitalizacion>> listarTipos() {
+        return ResponseEntity.ok(tipoCapitalizacionService.list());
+    }
+
+    @PostMapping
+    public ResponseEntity<TipoCapitalizacion> crearTipo(@RequestBody TipoCapitalizacionDTO dto) {
+        TipoCapitalizacion tipoPeriodo = tipoCapitalizacionService.create(dto);
+        return ResponseEntity.ok(tipoPeriodo);
     }
 }

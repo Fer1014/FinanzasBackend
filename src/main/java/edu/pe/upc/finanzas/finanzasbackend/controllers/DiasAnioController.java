@@ -1,11 +1,10 @@
 package edu.pe.upc.finanzas.finanzasbackend.controllers;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.DiasAnioDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.DiasAnio;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.IDiasAnioService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +20,13 @@ public class DiasAnioController {
     }
 
     @GetMapping
-    public List<DiasAnio> listarDiasAnio() {
-        return diasAnioService.list();
+    public ResponseEntity<List<DiasAnio>> listarDiasAnio() {
+        return ResponseEntity.ok(diasAnioService.list());
+    }
+
+    @PostMapping
+    public ResponseEntity<DiasAnio> crearDiaAnio(@RequestBody DiasAnioDTO diasAnioDTO) {
+        DiasAnio diasAnio = diasAnioService.create(diasAnioDTO);
+        return ResponseEntity.ok(diasAnio);
     }
 }

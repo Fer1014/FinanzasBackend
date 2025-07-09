@@ -1,5 +1,6 @@
 package edu.pe.upc.finanzas.finanzasbackend.serviceimplements;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.FrecuenciaCuponDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.FrecuenciaCupon;
 import edu.pe.upc.finanzas.finanzasbackend.repositories.FrecuenciaCuponRepository;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.IFrecuenciaCuponService;
@@ -14,6 +15,13 @@ public class FrecuenciaCuponServiceImpl implements IFrecuenciaCuponService {
 
     public FrecuenciaCuponServiceImpl(FrecuenciaCuponRepository frecuenciaCuponRepository) {
         this.frecuenciaCuponRepository = frecuenciaCuponRepository;
+    }
+
+    @Override
+    public FrecuenciaCupon create(FrecuenciaCuponDTO frecuenciaCuponDTO) {
+        FrecuenciaCupon frecuenciaCupon = new FrecuenciaCupon();
+        frecuenciaCupon.setDescripcion(frecuenciaCuponDTO.getDescripcion());
+        return frecuenciaCuponRepository.save(frecuenciaCupon);
     }
 
     @Override
