@@ -1,11 +1,10 @@
 package edu.pe.upc.finanzas.finanzasbackend.controllers;
 
+import edu.pe.upc.finanzas.finanzasbackend.dtos.MonedaDTO;
 import edu.pe.upc.finanzas.finanzasbackend.entities.Moneda;
 import edu.pe.upc.finanzas.finanzasbackend.serviceinterfaces.IMonedaService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +20,13 @@ public class MonedaController {
     }
 
     @GetMapping
-    public List<Moneda> listarMonedas() {
-        return monedaService.list();
+    public ResponseEntity<List<Moneda>> listarMonedas() {
+        return ResponseEntity.ok(monedaService.list());
+    }
+
+    @PostMapping
+    public ResponseEntity<Moneda> crearMoneda(@RequestBody MonedaDTO monedaDTO) {
+        Moneda moneda = monedaService.create(monedaDTO);
+        return ResponseEntity.ok(moneda);
     }
 }
