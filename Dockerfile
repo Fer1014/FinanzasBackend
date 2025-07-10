@@ -20,7 +20,7 @@ COPY --from=build /app/target/*.jar app.jar
 # Expose the port your spring boot application listens on (default is 8080)
 EXPOSE 8080
 # Define the command to run the Spring Boot application
-ENTRYPOINT["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
 
 # Note: The application will run with the 'prod' profile as set in the build stage.
 # This Dockerfile is designed to be used in a CI/CD pipeline or for local development.
