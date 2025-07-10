@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 public class DetalleBonoDTO {
-    private Long detalleBonoId;
+    private Long periodo;
     private LocalDate fechaProgramada;
     private BigDecimal inflacionTipo;
     private Double bonoValor;
@@ -24,4 +24,5 @@ public class DetalleBonoDTO {
     private Double flujoActPlazo;
     private Double factorConvexidad;
 
+    private Long bonoId;
 }
