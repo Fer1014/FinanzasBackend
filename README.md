@@ -37,4 +37,13 @@ Proyecto backend desarrollado en **Java** con **Spring Boot** y **Maven** para l
 
 ## Autores
 
-- Equipo de desarrollo UPC - Grupo 2 Finanzas
+#### Equipo de desarrollo UPC - Finanzas e Ingeniería Económica
+#### GRUPO 2 - NRC: 3405
+
+
+## Deployment
+
+El proyecto se encuntra despleago en render.
+Para interacción con la API a traves de swagger, ingresa al siguiente enlace:
+
+https://finanzasbackend-6wjj.onrender.com/swagger-ui/index.html
