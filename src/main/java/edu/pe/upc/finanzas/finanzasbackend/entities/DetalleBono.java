@@ -16,6 +16,8 @@ public class DetalleBono implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long detalleBonoId;
 
+    @Column(name = "periodo")
+    private Long periodo;
     @Column(name = "fecha_programada")
     private LocalDate fechaProgramada;
     @Column(name = "inflacion_tipo", precision = 5, scale = 3)
@@ -55,7 +57,8 @@ public class DetalleBono implements Serializable {
     public DetalleBono() {
     }
 
-    public DetalleBono(Long detalleBonoId, LocalDate fechaProgramada, BigDecimal inflacionTipo, Double bonoValor, Double bonoIndexado, Double cuponInteres, Double cuota, Double amortizacion, Double prima, Double escudo, Double flujoEmisor, Double flujoEmisorEscudo, Double flujoBonista, Double flujoActual, Double flujoActPlazo, Double factorConvexidad, Bono bono) {
+    public DetalleBono(Long detalleBonoId, Long periodo,LocalDate fechaProgramada, BigDecimal inflacionTipo, Double bonoValor, Double bonoIndexado, Double cuponInteres, Double cuota, Double amortizacion, Double prima, Double escudo, Double flujoEmisor, Double flujoEmisorEscudo, Double flujoBonista, Double flujoActual, Double flujoActPlazo, Double factorConvexidad, Bono bono) {
+        this.periodo = periodo;
         this.detalleBonoId = detalleBonoId;
         this.fechaProgramada = fechaProgramada;
         this.inflacionTipo = inflacionTipo;
